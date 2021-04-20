@@ -1,4 +1,4 @@
 ---
 title: "Introduction"
-output: github_document
+output: html_document
 ---
