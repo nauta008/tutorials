@@ -1,3 +1,1 @@
-install.packages(
-  "ncdf4"
-)
+install.packages("ncdf4")
