@@ -2,6 +2,10 @@
 
 Climate and weather data is often stored in NetCDF file formats for many good reasons. In the early stage of your study program you have probably learned the basics of data analysis using csv data files in either Excel or a programming language. When doing your own research, e.g. a thesis, you might need to work with NetCDF data by yourself. This repository contains some examples how to work with NetCDF stored data in R. The examples are made with Jupyter Notebooks. Below you can find instructions how to start.   
 
+## Book
+
+https://nauta008.github.io/tutorials/
+
 ## Installation
 
 ### Online
