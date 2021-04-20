@@ -1,5 +1,5 @@
 book_filename: "my-book.Rmd"
 delete_merged_file: true
-view: https://github.com/nauta008/tutorials/tree/feature/read-netcdf
-output_dir: "docs"
+output_dir: "./docs"
 clean: []
+rmd_subdir: "book"
