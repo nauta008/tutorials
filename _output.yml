@@ -7,6 +7,6 @@ bookdown::gitbook:
     toc:
       collapse: none
       before: |
-        <li><a href="./">Tutorials</a></li>
+        <li><a href="./index.html">Tutorials</a></li>
       after: |
         <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
