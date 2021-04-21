@@ -13,11 +13,15 @@ Instructions and R code examples are available in the online book.
 ### Online
 Launch the Jupyter notebook examples online by clicking on the button. It can take very long for the installation is done and the Jupyter notebook is launched.
 
+#### Jupyter Notebooks
 <!-- badges: start -->
 Jupyter + R [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nauta008/tutorials/)
 <!-- badges: end -->
 
 1.  Open notebooks in the R folder.
+
+#### Rstudio
+Rstudio [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nauta008/tutorials/HEAD?filepath=rstudio)
 
 ### PC/Laptop
 
