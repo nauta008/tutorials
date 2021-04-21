@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="intro-read-explore.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -134,8 +134,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
 <li class="part"><span><b>I Get Started</b></span></li>
 <li class="chapter" data-level="1" data-path="intro-read.html"><a href="intro-read.html"><i class="fa fa-check"></i><b>1</b> Read NetCDF in R</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro-read-explore.html"><a href="intro-read-explore.html"><i class="fa fa-check"></i><b>1.1</b> Explore NetCDF</a></li>
-<li class="chapter" data-level="1.2" data-path="intro-read-data.html"><a href="intro-read-data.html"><i class="fa fa-check"></i><b>1.2</b> Get Data</a></li>
+<li class="chapter" data-level="1.1" data-path="intro-read.html"><a href="intro-read.html#intro-read-explore"><i class="fa fa-check"></i><b>1.1</b> Explore NetCDF</a></li>
+<li class="chapter" data-level="1.2" data-path="intro-read.html"><a href="intro-read.html#intro-read-data"><i class="fa fa-check"></i><b>1.2</b> Get Data</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="_blank">Published with bookdown</a></li>
@@ -162,14 +162,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>First you need to install some R packages in order to read the NetCDF data into your R environment:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;netcdf4&#39;</span>)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&#39;netcdf4.helpers&#39;</span>)</a></code></pre></div>
+<div id="intro-read-explore" class="section level2">
+<h2><span class="header-section-number">1.1</span> Explore NetCDF</h2>
+<p>Now we use the R package to load an example NetCDF dataset into R. The function <code>nc_open</code> opens a data stream, but does not yet load all the data into the memory. We can use the netcdf4.helpers package to request some more information about the NetCDF dataset. For instance, we can requests the dates.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(ncdf4)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(ncdf4.helpers)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">nc &lt;-<span class="st"> </span>ncdf4<span class="op">::</span><span class="kw">nc_open</span>(<span class="st">&quot;data/OUT_EVAP_monthly_1971.nc&quot;</span>) <span class="co"># or slimply use nc_open()</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">datetimes &lt;-<span class="st"> </span>ncdf4.helpers<span class="op">::</span><span class="kw">nc.get.time.series</span>(nc)</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="kw">head</span>(datetimes)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; [1] &quot;1971-01-18 00:00:00&quot; &quot;1971-02-16 12:00:00&quot; &quot;1971-03-18 00:00:00&quot; &quot;1971-04-17 12:00:00&quot; &quot;1971-05-18 00:00:00&quot; &quot;1971-06-17 12:00:00&quot;</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="kw">tail</span>(datetimes)</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; [1] &quot;1971-07-18 00:00:00&quot; &quot;1971-08-18 00:00:00&quot; &quot;1971-09-17 12:00:00&quot; &quot;1971-10-18 00:00:00&quot; &quot;1971-11-17 12:00:00&quot; &quot;1971-12-18 00:00:00&quot;</span></a></code></pre></div>
+<p>Request information about the variables.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">ncdf4.helpers<span class="op">::</span><span class="kw">nc.get.variable.list</span>(nc)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; [1] &quot;OUT_EVAP&quot;</span></a></code></pre></div>
+</div>
+<div id="intro-read-data" class="section level2">
+<h2><span class="header-section-number">1.2</span> Get Data</h2>
+<p>With the function <code>ncvar_get</code>, we can load data of a specific variable into an array. Use the <code>start</code> and <code>count</code> parameter to load slices in the available dimensions.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">slice &lt;-<span class="st"> </span>ncdf4<span class="op">::</span><span class="kw">ncvar_get</span>(nc, <span class="st">&#39;OUT_EVAP&#39;</span>, <span class="dt">start =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">count =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">image</span>(slice)</a></code></pre></div>
+<div class="figure"><span id="fig:01-read"></span>
+<img src="my-tutorials_files/figure-html/01-read-1.png" alt="Simple image plot of a single data slice in the time dimension." width="100%" />
+<p class="caption">
+FIGURE 1.1: Simple image plot of a single data slice in the time dimension.
+</p>
+</div>
+
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intro-read-explore.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
