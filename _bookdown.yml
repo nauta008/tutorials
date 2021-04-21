@@ -1,5 +1,5 @@
-book_filename: "my-book.Rmd"
+book_filename: "my-tutorials"
 delete_merged_file: true
 output_dir: "./docs"
-clean: []
+clean: ["./docs"]
 rmd_subdir: "book"
