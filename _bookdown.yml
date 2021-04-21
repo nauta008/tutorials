@@ -2,4 +2,4 @@ book_filename: "my-tutorials"
 delete_merged_file: true
 output_dir: "./docs"
 clean: ["./docs"]
-rmd_subdir: "book"
+rmd_subdir: "bookdown"

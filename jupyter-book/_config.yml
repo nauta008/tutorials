@@ -1,0 +1,11 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Data Analysis Tutorials
+author: MSc Lisanne Nauta (WUR)
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
