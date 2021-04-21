@@ -14,7 +14,7 @@ Instructions and R code examples are available in the online book.
 Launch the Jupyter notebook examples online by clicking on the button. It can take very long for the installation is done and the Jupyter notebook is launched.
 
 <!-- badges: start -->
-Jupyter + R [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nauta008/tutorials/feature/read-netcdf)
+Jupyter + R [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nauta008/tutorials/)
 <!-- badges: end -->
 
 1.  Open notebooks in the R folder.
