@@ -4,7 +4,9 @@ Climate and weather data is often stored in NetCDF file formats for many good re
 
 ## Book
 
-https://nauta008.github.io/tutorials/
+Instructions and R code examples are available in the online book.
+
+:blue_book:[Read it here](https://nauta008.github.io/tutorials/). 
 
 ## Installation
 
