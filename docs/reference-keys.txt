@@ -1,2 +1,4 @@
-r
-read-netcdf
+fig:01-read
+intro-read
+intro-read-explore
+intro-read-data

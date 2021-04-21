@@ -2,16 +2,41 @@
 
 # (PART) Get Started {-}
 
-# R
+# Read NetCDF in R {#intro-read}
 
-This chapter is an overview of the methods that
-we propose to solve an **important problem**.
+First you need to install some R packages in order to read the NetCDF data into your R environment:
 
-## Read NetCDF
+```{r 01-install ,eval=FALSE}
+install.packages('netcdf4')
+install.packages('netcdf4.helpers')
+```
 
-```{r}
+## Explore NetCDF {#intro-read-explore}
+
+Now we use the R package to load an example NetCDF dataset into R. The function `nc_open` opens a data stream, but does not yet load all the data into the memory. We can use the netcdf4.helpers package to request some more information about the NetCDF dataset. For instance, we can requests the dates.
+
+```{r 01-datetimes}
 library(ncdf4)
-nc <- ncdf4::nc_open("data/OUT_EVAP_monthly_1971.nc")
+library(ncdf4.helpers)
+
+nc <- ncdf4::nc_open("data/OUT_EVAP_monthly_1971.nc") # or slimply use nc_open()
+datetimes <- ncdf4.helpers::nc.get.time.series(nc)
+head(datetimes)
+tail(datetimes)
+```
+
+Request information about the variables.
+
+```{r 01-variables}
+ncdf4.helpers::nc.get.variable.list(nc)
+```
+
+## Get Data {#intro-read-data}
+
+With the function `ncvar_get`, we can load data of a specific variable into an array. Use the `start` and `count` parameter to load slices in the available dimensions. 
+
+```{r 01-read, fig.cap="Simple image plot of a single data slice in the time dimension."}
+
 slice <- ncdf4::ncvar_get(nc, 'OUT_EVAP', start = c(1,1,1), count = c(-1,-1,1))
 image(slice)
 ```

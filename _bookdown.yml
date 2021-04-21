@@ -3,3 +3,9 @@ delete_merged_file: true
 output_dir: "./docs"
 clean: ["./docs"]
 rmd_subdir: "bookdown"
+language:
+  label:
+    fig: "FIGURE "
+    tab: "TABLE "
+  ui:
+    chapter_name: "Chapter "

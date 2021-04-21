@@ -1,14 +1,16 @@
 ---
-title: "Tutorials"
-author: "Lisanne Nauta"
+title: "WSG Data Tutorials"
+author: "MSc Lisanne Nauta (WUR)"
 date: "`r Sys.Date()`"
 documentclass: krantz
+knit: bookdown::render_book
 site: bookdown::bookdown_site
+documentclass: krantz
+monofont: "Source Code Pro"
+monofontoptions: "Scale=0.7"
 repo: https://github.com/nauta008/tutorials
 link-citations: yes
 description: "This book shows examples of NetCDF data I/O, analysis and plotting in R."
 colorlinks: yes
 graphics: yes
-lot: yes
-lof: yes
 ---
