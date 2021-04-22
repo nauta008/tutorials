@@ -1,4 +1,4 @@
-FROM rocker/rstudio
+FROM rocker/binder:4.0.2
 LABEL maintainer='nauta'
 USER root
 COPY . ${HOME}
