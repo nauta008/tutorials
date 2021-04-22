@@ -1,7 +1,7 @@
 FROM rocker/rstudio:3.5.0
 LABEL maintainer='nauta'
 
-RUN apt-get install libnetcdf-dev 
+RUN apt-get update -qq && apt-get install libnetcdf-dev 
 RUN R -e 'install.packages("ncdf4", repo = "https://cloud.r-project.org/")'
 RUN R -e 'install.packages("ncdf4.helpers", repo = "https://cloud.r-project.org/")'
 RUN git clone https://github.com/nauta008/tutorials.git
