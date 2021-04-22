@@ -2,6 +2,13 @@
 
 # (PART) Get Started {-}
 
+```{r include=FALSE}
+if (basename(getwd())!= "tutorials"){
+  setwd(gsub("(tutorials).*","\\1",getwd())) # little trick to get notebooks wokring on local machines
+}
+```
+
+
 # Read NetCDF in R {#intro-read}
 
 First you need to install some R packages in order to read the NetCDF data into your R environment:
