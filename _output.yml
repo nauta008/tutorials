@@ -1,7 +1,6 @@
 bookdown::gitbook:
   css: bookdown/css/style.css
   lib_dir: libs
-  split_by: section
   config:
     toolbar:
         position: static
