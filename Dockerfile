@@ -1,18 +1,8 @@
 FROM rocker/geospatial
 
-#RUN R -e "remotes::install_github('geocompr/geocompkg')"
-#RUN su rstudio && \
-#  cd /home/rstudio && \
-#  wget https://github.com/Robinlovelace/geocompr/archive/master.zip && \
-#  unzip master.zip && \
-#  mv geocompr-master /home/rstudio/geocompr
-#RUN chown -Rv rstudio /home/rstudio/geocompr
-
-
-
 RUN apt-get update -qq && apt-get install -y libnetcdf-dev 
-RUN R -e 'install.packages("ncdf4", repo = "https://cloud.r-project.org/")'
-RUN R -e 'install.packages("ncdf4.helpers", repo = "https://cloud.r-project.org/")'
+#RUN R -e 'install.packages("ncdf4", repo = "https://cloud.r-project.org/")'
+#RUN R -e 'install.packages("ncdf4.helpers", repo = "https://cloud.r-project.org/")'
 
 RUN cd /home/rstudio && \ 
   git clone https://github.com/nauta008/tutorials.git 
