@@ -10,4 +10,4 @@ RUN wget https://github.com/nauta008/tutorials/raw/master/DESCRIPTION && R -e "o
 RUN rm DESCRIPTION.1; exit 0
 
 RUN pip3 -q install pip --upgrade
-RUN pip3 install jupyter
+RUN pip3 install jupyter --user
