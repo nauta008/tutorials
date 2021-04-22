@@ -1,13 +1,6 @@
-FROM rocker/binder:4.0.2
+FROM rocker/rstudio
 LABEL maintainer='nauta'
-USER root
-COPY . ${HOME}
-RUN chown -R ${NB_USER} ${HOME}
-USER ${NB_USER}
 
+RUN git clone https://github.com/nauta008/tutorials.git
 RUN wget https://github.com/nauta008/tutorials/raw/master/DESCRIPTION && R -e "options(repos = list(CRAN = 'https://cloud.r-project.org/')); devtools::install_deps()"
 
-RUN rm DESCRIPTION.1; exit 0
-
-RUN pip3 -q install pip --upgrade
-RUN pip3 install jupyter --user
