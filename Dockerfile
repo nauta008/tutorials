@@ -1,7 +1,7 @@
-FROM rocker/rstudio:3.5.0
+FROM rocker/tidyverse:3.5.0
 
 RUN apt-get update -qq && apt-get install -y libnetcdf-dev 
-RUN R -e 'install.packages("devtools", repo = "https://cloud.r-project.org/")'
+
 #RUN R -e 'install.packages("ncdf4.helpers", repo = "https://cloud.r-project.org/")'
 
 RUN cd /home/rstudio && \
