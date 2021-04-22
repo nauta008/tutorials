@@ -1,5 +1,4 @@
-FROM rocker/rstudio:3.5.0
-LABEL maintainer='nauta'
+FROM rocker/verse:3.5.2
 
 #RUN apt-get update -qq && apt-get install -y libnetcdf-dev 
 #RUN R -e 'install.packages("ncdf4", repo = "https://cloud.r-project.org/")'
