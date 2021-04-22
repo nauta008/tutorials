@@ -1,3 +1,6 @@
 install.packages(
-  "ncdf4"
+  "bookdown",
+  "ncdf4",
+  "ncdf4.helpers",
+  "rmarkdown"
 )
