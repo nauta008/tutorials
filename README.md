@@ -25,6 +25,12 @@ Rstudio [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2
 
 ### PC/Laptop
 
+#### Docker
+
+1.  Install Docker
+2.  build an image: `docker build --rm -t nauta008/tutorials https://github.com/nauta008/tutorials.git`
+3.  run the build: `docker run --rm -p 127.0.0.1:8787:8787 -e DISABLE_AUTH=true nauta008/tutorials` 
+
 #### Using Anaconda
 
 1.  Install R: https://cran.r-project.org/ 
