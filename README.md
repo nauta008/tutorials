@@ -21,7 +21,7 @@ Jupyter + R [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https
 1.  Open notebooks in the R folder.
 
 #### Rstudio
-Rstudio [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nauta008/tutorials/HEAD?filepath=rstudio)
+Rstudio [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nauta008/tutorials/HEAD?urlpath=rstudio)
 
 ### PC/Laptop
 
